@@ -104,6 +104,9 @@
 }
 
 .Home-Page-Post-Titlee{
+  /* width: 100%; */
+  word-wrap: break-word;
+  /* background-color: red; */
     font-size: 25px;
     font-weight: 600;
     /* background-color: red; */

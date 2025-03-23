@@ -40,7 +40,7 @@ function PostDetails() {
 
   const GetAuth = async () => {
     try {
-      const response = await fetch("http://localhost:3001/auth");
+      const response = await fetch("https://imagekit-la4g.onrender.com/auth");
       const data = await response.json();
       return data;
     } catch (err) {
@@ -192,6 +192,7 @@ function PostDetails() {
               type="text"
               className="post-details-header-input"
               required={true}
+              maxLength={50}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>

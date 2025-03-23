@@ -69,7 +69,7 @@ function EditProfile() {
 
   const GetAuth = async () => {
     try {
-      const response = await fetch("http://localhost:3001/auth");
+      const response = await fetch("https://imagekit-la4g.onrender.com/auth");
       const data = await response.json();
       return data;
     } catch (err) {
