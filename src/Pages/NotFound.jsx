@@ -12,7 +12,7 @@ function NotFound() {
   return (
     <div className="NotFoundPage" style={{minWidth: '100vh'}}>
         <div className="NotFoundContainer">
-            <h1>Page Not Found</h1>
+            <h1>Page Not Foundd</h1>
         </div>
     </div>
   )
