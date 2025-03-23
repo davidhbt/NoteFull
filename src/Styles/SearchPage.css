@@ -6,7 +6,8 @@
   align-items: center;
 }
 .SearchPageContainer {
-  width: var(--defualtwidth);
+  /* background-color: red; */
+  width: 1600px;
   min-height: calc(100vh - 80px);
   display: flex;
   /* justify-content: space-evenly; */

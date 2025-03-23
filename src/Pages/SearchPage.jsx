@@ -109,7 +109,7 @@ function SearchPage() {
                                     </p>
                                   </div>
                                   <p className="postDate">
-                                    {new Date(post.Timestamp.seconds * 1000).toLocaleString()}
+                                    {new Date(post.Timestamp.seconds * 1000).toLocaleDateString()}
                                   </p>
                                 </div>
                               </div>

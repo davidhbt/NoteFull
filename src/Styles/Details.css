@@ -106,7 +106,7 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1530px) {
   .DetailsPageContainer{
     width: 100%;
   }
@@ -119,15 +119,16 @@
     width: 100%;
     padding-inline: 10px;
   }
-  .DetailsPagePostTitle{
-    font-size: 35px;
-  }
+
   
 }
 
 
 
 @media screen and (max-width:500px){
+  .DetailsPagePostTitle{
+    font-size: 35px;
+  }
   .ScrollToTop{
     width: 45px;
     height: 45px;
