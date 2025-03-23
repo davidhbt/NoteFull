@@ -1,0 +1,248 @@
+Global Styles for Markdown Rendering
+.HomePagePostContent {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    color: #24292f;
+    padding: 20px;
+    background: #fff;
+    /* background-color: black; */
+    /* display: none; */
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  }
+  
+  /* Headers */
+  .HomePagePostContent h1,
+  .HomePagePostContent h2,
+  .HomePagePostContent h3,
+  .HomePagePostContent h4,
+  .HomePagePostContent h5,
+  .HomePagePostContent h6 {
+    color: #24292f;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+  }
+  
+  .HomePagePostContent h1 {
+    font-size: 3.25rem;
+  }
+  .HomePagePostContent h2 {
+    font-size: 2.75rem;
+  }
+  .HomePagePostContent h3 {
+    font-size: 1.25rem;
+  }
+  .HomePagePostContent h4 {
+    font-size: 1.35rem;
+  }
+  .HomePagePostContent h5 {
+    font-size: 1.10rem;
+  }
+  .HomePagePostContent h6 {
+    font-size: 0.875rem;
+  }
+  
+  /* Lists */
+  .HomePagePostContent ul,
+  .HomePagePostContent ol {
+    margin-left: 20px;
+    padding-left: 20px;
+  }
+  
+  .HomePagePostContent ul li,
+  .HomePagePostContent ol li {
+    margin-bottom: 0.5em;
+  }
+  
+  .HomePagePostContent ul li {
+    list-style-type: disc;
+  }
+  
+  .HomePagePostContent ol li {
+    list-style-type: decimal;
+  }
+  
+  .HomePagePostContent ul li input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Code Block Styling */
+  .HomePagePostContent pre,
+  .HomePagePostContent code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.875rem;
+  }
+  
+
+  .HomePagePostContent pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Syntax Highlighting for Code */
+  .HomePagePostContent pre code {
+    display: block;
+    padding: 1em;
+    line-height: 1.5;
+    /* background-color: #2d2d2d; */
+    /* color: #f8f8f2; */
+    border-radius: 4px;
+  }
+  
+  /* Highlight.js styles (ensure this is loaded axs well for syntax highlighting) */
+  .HomePagePostContent pre code {
+    /* background-color: #2d2d2d !important; */
+    /* color: #f8f8f2 !important; */
+    /* color: black; */
+  }
+  
+  /* Links */
+  .HomePagePostContent a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .HomePagePostContent a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Blockquotes */
+  .HomePagePostContent blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding-left: 16px;
+    color: #6a737d;
+    font-style: italic;
+    margin: 1em 0;
+  }
+  
+  .HomePagePostContent blockquote p {
+    margin: 0;
+  }
+  
+  /* Tables */
+  .HomePagePostContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+  
+  .HomePagePostContent table th,
+  .HomePagePostContent table td {
+    padding: 8px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  .HomePagePostContent table th {
+    text-align: left;
+    background-color: #f6f8fa;
+  }
+  
+  .HomePagePostContent table tr:nth-child(odd) {
+    background-color: #fafbfc;
+  }
+  
+  /* Images */
+  .HomePagePostContent img {
+    max-width: 100%;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    margin-block: 10px;
+  }
+  
+  /* Task Lists */
+  .HomePagePostContent ul li input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  .HomePagePostContent ul li input[type="checkbox"]:checked {
+    background-color: #36b37e;
+    border-color: #36b37e;
+  }
+  
+  .HomePagePostContent ul li input[type="checkbox"]:disabled {
+    background-color: #d1d5da;
+    border-color: #d1d5da;
+  }
+  
+  /* Horizontal Rule */
+  .HomePagePostContent hr {
+    border: 0;
+    border-top: 1px solid #e1e4e8;
+    margin: 2em 0;
+  }
+  
+  /* Footnotes */
+  .HomePagePostContent sup {
+    font-size: 0.875rem;
+  }
+  
+  /* Line breaks */
+  .HomePagePostContent br {
+    display: block;
+    margin-bottom: 0.75em;
+  }
+  
+  /* Preformatted Code Block Styling */
+  .HomePagePostContent pre {
+    font-family: "Courier New", monospace;
+    /* background-color: #f6f8fa; */
+    padding: 20px;
+    border-radius: 6px;
+    overflow: auto;
+  }
+  
+  /* Ensure highlighted code in pre blocks does not get overwritten */
+  .HomePagePostContent pre .hljs {
+    /* background-color: #2d2d2d !important; */
+    /* color: #f8f8f2 !important; */
+  }
+  
+  .HomePagePostContent ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  /* .hljs-title.class_, .hljs-title.hljs-title.class_.inherited__{
+    color: rgb(97, 174, 238);
+  }
+  .hljs-attr{
+    color: rgb(209, 154, 102);
+  }
+  .hljs-keyword{
+    color: rgb(198, 120, 221);
+  }
+
+  .hljs-string{
+    color: #004ba0;
+  } */
+
+
+  @media screen and (max-width:450px) {
+    .HomePagePostContent h1 {
+      font-size: 3.10rem;
+    }
+    .HomePagePostContent h2 {
+      font-size: 2.50rem;
+    }
+    .HomePagePostContent h3 {
+      font-size: 1.10rem;
+    }
+    .HomePagePostContent h4 {
+      font-size: 1.20rem;
+    }
+    .HomePagePostContent h5 {
+      font-size: 1rem;
+    }
+    .HomePagePostContent h6 {
+      font-size: 0.875rem;
+    }
+    
+  }

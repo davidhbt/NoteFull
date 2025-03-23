@@ -1,0 +1,65 @@
+.post-page {
+  min-height: calc(100vh - 280px);
+  /* max-height: 100vh; */
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-page-title {
+  margin-block: 50px;
+  color: var(--secondary);
+}
+.post-page-container {
+  /* background-color: red; */
+  display: flex;
+  width: 800px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#editorjs-container {
+  /* background-color: black; */
+  /* background-color: rgb(235,235,235); */
+  /* padding-top: 50px; */
+  /* padding-top: 20px; */
+  /* padding-bottom: 0; */
+  border-radius: 10px;
+  border: 1px solid rgb(235, 235, 235);
+  width: 800px;
+  /* background-color: red; */
+  overflow-x: auto;
+}
+.codex-editor__redactor {
+  padding: 20px;
+  /* padding-left:  30px; */
+  padding-bottom: 50px !important;
+  /* min-height: 300px; */
+  height: 400px;
+  /* width: 10px; */
+  /* background-color: red; */
+  overflow-x: auto;
+
+}
+
+.post-page-button{
+    margin: 50px;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    height: 35px;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+}
+
+.post-page-upload{
+  /* background-color: red; */
+  width: 100%;
+  text-align: right;
+  margin-block: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}

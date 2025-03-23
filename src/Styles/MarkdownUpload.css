@@ -1,0 +1,222 @@
+.markdown-upload{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.markdown-upload-container{
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    /* background-color: red; */
+    height: auto;
+}
+.markdown-upload-title{
+    margin-top: 25px;
+}
+.markdown-upload-text-area{
+    /* background-color: black; */
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    /* height: 100%; */
+    margin-block: 50px;
+
+}
+.markdown-upload-text-input{
+    width: 1000px;
+max-height: 500px; /* Set the max height you want */
+  min-height: 200px; /* Optional: set a minimum height */
+  height: auto;
+  overflow: auto; /* Add scroll if content overflows */
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-upload-button{
+    margin-block: 50px;
+    width: 100px;
+    height: 35px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/* wts poppin nigaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+
+
+/* Global Styles for SimpleMDE Preview */
+.editor-preview, .editor-preview-active {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: #24292f;
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Headers */
+.editor-preview h1, .editor-preview-active h1,
+.editor-preview h2, .editor-preview-active h2,
+.editor-preview h3, .editor-preview-active h3,
+.editor-preview h4, .editor-preview-active h4,
+.editor-preview h5, .editor-preview-active h5,
+.editor-preview h6, .editor-preview-active h6 {
+  color: #24292f;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+
+.editor-preview h1 { font-size: 2.25rem; }
+.editor-preview h2 { font-size: 1.75rem; }
+.editor-preview h3 { font-size: 1.5rem; }
+.editor-preview h4 { font-size: 1.25rem; }
+.editor-preview h5 { font-size: 1rem; }
+.editor-preview h6 { font-size: 0.875rem; }
+
+/* Lists */
+.editor-preview ul, .editor-preview ol {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.editor-preview ul li, .editor-preview ol li {
+  margin-bottom: 0.5em;
+}
+
+.editor-preview ul li { list-style-type: disc; }
+.editor-preview ol li { list-style-type: decimal; }
+
+/* Code Block Styling */
+.editor-preview pre, .editor-preview code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.875rem;
+}
+
+.editor-preview pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Syntax Highlighting */
+.editor-preview pre code {
+  display: block;
+  padding: 1em;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+
+/* Links */
+.editor-preview a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.editor-preview a:hover {
+  text-decoration: underline;
+}
+
+/* Blockquotes */
+.editor-preview blockquote {
+  border-left: 4px solid #dfe2e5;
+  padding-left: 16px;
+  color: #6a737d;
+  font-style: italic;
+  margin: 1em 0;
+}
+
+.editor-preview blockquote p { margin: 0; }
+
+/* Tables */
+.editor-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.editor-preview table th, .editor-preview table td {
+  padding: 8px;
+  border: 1px solid #dfe2e5;
+}
+
+.editor-preview table th {
+  text-align: left;
+  background-color: #f6f8fa;
+}
+
+.editor-preview table tr:nth-child(odd) {
+  background-color: #fafbfc;
+}
+
+/* Images */
+.editor-preview img {
+  max-width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Horizontal Rule */
+.editor-preview hr {
+  border: 0;
+  border-top: 1px solid #e1e4e8;
+  margin: 2em 0;
+}
+
+/* Footnotes */
+.editor-preview sup { font-size: 0.875rem; }
+
+/* Line breaks */
+.editor-preview br {
+  display: block;
+  margin-bottom: 0.75em;
+}
+
+/* Preformatted Code Block Styling */
+.editor-preview pre {
+  font-family: "Courier New", monospace;
+  padding: 20px;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+/* Highlight.js overrides for code */
+.editor-preview pre .hljs {
+  background-color: #2d2d2d !important;
+  color: #f8f8f2 !important;
+}
+
+/* Specific syntax highlighting */
+.hljs-title.class_, .hljs-title.hljs-title.class_.inherited__ {
+  color: rgb(97, 174, 238);
+}
+
+.hljs-attr {
+  color: rgb(209, 154, 102);
+}
+
+.hljs-keyword {
+  color: rgb(198, 120, 221);
+}
+
+.hljs-string {
+  color: #004ba0;
+}

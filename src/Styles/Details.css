@@ -1,0 +1,149 @@
+.DetailsPage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.DetailsPageContainer {
+  width: 1000px;
+  height: auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+}
+.DetailsPagePost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.DetailsPagePostData {
+  /* background-color: red; */
+  width: 100%;
+  margin-bottom: 10px;
+}
+.DetailsPagePostTags {
+  display: flex;
+  margin-block: 10px;
+  gap: 10px;
+}
+
+.DetailsPagePostTags p {
+  background-color: var(--primary);
+  /* margin: 10px; */
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.DetailsPagePostTitle {
+  /* display: none; */
+  font-size: 50px;
+}
+
+.DetailsPagePostAuthor {
+  margin-block: 10px;
+  /* background-color: black; */
+  width: 200px;
+  height: 50px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+
+.DetailsPagePostAuthor img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+.DetailsPagePostAuthor p {
+  font-weight: 400;
+}
+.DetailsPagePostAuthorbutton {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  /* border-color: none; */
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+.HomePagePostContent{
+  width: 1000px;
+}
+
+.ScrollToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--secondary);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 5px 10px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.ScrollToTop:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1030px) {
+  .DetailsPageContainer{
+    width: 100%;
+  }
+
+  .HomePagePostContent{
+    width: 100%;
+    padding-left: 5px;
+  }
+  .DetailsPagePost{
+    width: 100%;
+    padding-inline: 10px;
+  }
+  .DetailsPagePostTitle{
+    font-size: 35px;
+  }
+  
+}
+
+
+
+@media screen and (max-width:500px){
+  .ScrollToTop{
+    width: 45px;
+    height: 45px;
+    right: 25px;
+    bottom: 25px;
+  }
+  .DetailsPagePost{
+    /* background-color: red; */
+    padding-inline: 10px;
+    max-width: 90%;
+    overflow: hidden;
+
+
+  }
+  .HomePagePostContent{
+    overflow:hidden;
+
+  }
+}
