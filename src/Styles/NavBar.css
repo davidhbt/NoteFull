@@ -10,7 +10,7 @@ nav {
 }
 
 .NavBarcontent {
-  min-width: 1300px;
+  min-width: var(--defualtwidth);
   /* max-width: 80%; */
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@ nav {
 }
 
 .content-a {
-  min-width: 1300px;
+  min-width: var(--defualtwidth);
   display: flex;
   justify-content: space-between;
   align-items: center;

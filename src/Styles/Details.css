@@ -6,7 +6,7 @@
   align-items: center;
 }
 .DetailsPageContainer {
-  width: 1000px;
+  width: var(--defualtwidth);
   height: auto;
   padding-top: 10px;
   display: flex;
@@ -78,7 +78,7 @@
   flex: 1;
 }
 .HomePagePostContent{
-  width: 1000px;
+  width: var(--defualtwidth);
 }
 
 .ScrollToTop {

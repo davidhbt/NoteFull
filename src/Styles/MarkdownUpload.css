@@ -29,7 +29,7 @@
 
 }
 .markdown-upload-text-input{
-    width: 1000px;
+    width: var(--defualtwidth);
 max-height: 500px; /* Set the max height you want */
   min-height: 200px; /* Optional: set a minimum height */
   height: auto;

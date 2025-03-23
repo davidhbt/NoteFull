@@ -1,40 +1,70 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../Config/firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, limit, startAfter, startAt } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
 import ReactPaginate from "react-paginate";
-// import "./Pagination.css"; // Add custom styles
 
 function Posts({ FirstName, LastName, ProfileURL }) {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [lastDocs, setLastDocs] = useState([]); // Store last docs for each page
   const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 9; // Adjust per page count
+  const [totalPages, setTotalPages] = useState(1);
+  const postsPerPage = 9;
 
   useEffect(() => {
-    setLoading(true);
-    const fetchPosts = async () => {
-      const postsRef = collection(db, "Post");
-      const q = query(postsRef, orderBy("Timestamp", "desc"));
-      const snapshot = await getDocs(q);
-      const postsData = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setPosts(postsData);
-      setLoading(false);
-    };
-
-    fetchPosts();
+    fetchPosts(0);
   }, []);
 
-  // Get current posts for the page
-  const startIndex = currentPage * postsPerPage;
-  const currentPosts = posts.slice(startIndex, startIndex + postsPerPage);
+  const fetchPosts = async (pageIndex) => {
+    setLoading(true);
+    const postsRef = collection(db, "Post");
+
+    let q;
+
+    if (pageIndex === 0) {
+      // First page: get first 9 posts
+      q = query(postsRef, orderBy("Timestamp", "desc"), limit(postsPerPage));
+    } else if (pageIndex > currentPage && lastDocs[pageIndex - 1]) {
+      // Moving forward: use last saved doc
+      q = query(
+        postsRef,
+        orderBy("Timestamp", "desc"),
+        startAfter(lastDocs[pageIndex - 1]),
+        limit(postsPerPage)
+      );
+    } else if (pageIndex < currentPage && lastDocs[pageIndex]) {
+      // Moving backward: use stored doc for that page
+      q = query(
+        postsRef,
+        orderBy("Timestamp", "desc"),
+        startAt(lastDocs[pageIndex]),
+        limit(postsPerPage)
+      );
+    }
+
+    const snapshot = await getDocs(q);
+    if (!snapshot.empty) {
+      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+
+      // Save the last document of this page for future navigation
+      const newLastDocs = [...lastDocs];
+      newLastDocs[pageIndex] = snapshot.docs[snapshot.docs.length - 1];
+      setLastDocs(newLastDocs);
+    }
+
+    if (totalPages === 1) {
+      const totalDocsSnapshot = await getDocs(collection(db, "Post"));
+      setTotalPages(Math.ceil(totalDocsSnapshot.docs.length / postsPerPage));
+    }
+
+    setCurrentPage(pageIndex);
+    setLoading(false);
+  };
 
   const handlePageClick = ({ selected }) => {
-    setCurrentPage(selected);
+    fetchPosts(selected);
   };
 
   return (
@@ -43,45 +73,44 @@ function Posts({ FirstName, LastName, ProfileURL }) {
         <Loader />
       ) : (
         <div className="anotherPostPageContainer">
-        <div className="Home-Page-Posts-Container">
-          {posts.length === 0 && <>No Posts</>}
+          <div className="Home-Page-Posts-Container">
+            {posts.length === 0 && <>No Posts</>}
 
-          {currentPosts.map((post) => (
-            <Link to={`/details/${post.id}`} className="Home-Page-Post" key={post.id}>
-              <img className="Home-Page-Post-img" src={post.BannerUrl} alt="Post" />
-              <div className="Home-Page-Post-Content">
-                <div className="Home-Page-Post-Tags">
-                  {post.Tags.map((tag, index) => (
-                    <p className="Home-Page-Post-Tag" key={index}>
-                      {tag}
-                    </p>
-                  ))}
-                </div>
-                <div className="Home-Page-Post-Titlee">{post.Title}</div>
-                <div className="Home-Page-Post-ProfileData">
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <img className="Home-Page-Post-Profile-Img" src={ProfileURL} alt="Profile" />
-                    <p className="Home-Page-Post-Profile-Name">
-                      {FirstName + " " + LastName}
+            {posts.map((post) => (
+              <Link to={`/details/${post.id}`} className="Home-Page-Post" key={post.id}>
+                <img className="Home-Page-Post-img" src={post.BannerUrl} alt="Post" />
+                <div className="Home-Page-Post-Content">
+                  <div className="Home-Page-Post-Tags">
+                    {post.Tags.map((tag, index) => (
+                      <p className="Home-Page-Post-Tag" key={index}>
+                        {tag}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="Home-Page-Post-Titlee">{post.Title}</div>
+                  <div className="Home-Page-Post-ProfileData">
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <img className="Home-Page-Post-Profile-Img" src={ProfileURL} alt="Profile" />
+                      <p className="Home-Page-Post-Profile-Name">
+                        {FirstName + " " + LastName}
+                      </p>
+                    </div>
+                    <p className="postDate">
+                      {new Date(post.Timestamp.seconds * 1000).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="postDate">
-                    {new Date(post.Timestamp.seconds * 1000).toLocaleString()}
-                  </p>
                 </div>
-              </div>
-            </Link>
-          ))}
-
+              </Link>
+            ))}
+          </div>
 
           {/* React Paginate Component */}
-          
-        </div>
-        <ReactPaginate
+          <ReactPaginate
             previousLabel={"← Previous"}
             nextLabel={"Next →"}
-            pageCount={Math.ceil(posts.length / postsPerPage)}
+            pageCount={totalPages}
             onPageChange={handlePageClick}
+            forcePage={currentPage}
             containerClassName={"pagination"}
             previousLinkClassName={"pagination__link"}
             nextLinkClassName={"pagination__link"}
