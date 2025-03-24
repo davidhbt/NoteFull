@@ -77,7 +77,7 @@ function Detail() {
       } catch (err) {
         // setPostLoading(false);
         setPostLoading(false);
-        toast.error('cannot get post')
+        toast.error('Cannot Get Post!')
         navigate('/')
       }
     };
@@ -93,7 +93,7 @@ function Detail() {
           setAdminLoading(false);
         } else {
           // alert("Document not found");
-          toast.error('post not found')
+          toast.error('Post Not Found.')
           navigate('')
           setAdminLoading(false);
         }
@@ -150,10 +150,10 @@ function Detail() {
                       try {
                         await deleteDoc(DocRef);
                         // alert('wsgg')
-                        toast.success("Deleted Post")
+                        toast.success("Deleted Post!")
                         navigate("/");
                       } catch (err) {
-                        toast.error("Cannot Delete Post")
+                        toast.error("Cannot Delete Post!")
 
                       }
                     }}

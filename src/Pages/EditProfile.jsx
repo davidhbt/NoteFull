@@ -55,11 +55,11 @@ function EditProfile() {
           console.log(ProfileUrl);
           setLoading(false);
         } else {
-          toast.error('uknown error occured')
+          toast.error('ServerSide Error')
           setLoading(false);
         }
       } catch (err) {
-      toast.error('uknown error occured')
+      toast.error('ServerSide Error')
         
         console.log(err);
       }
@@ -73,7 +73,7 @@ function EditProfile() {
       const data = await response.json();
       return data;
     } catch (err) {
-      toast.error('uknown error occured')
+      toast.error('ImageKit Server Error.')
 
       return null;
     }
@@ -98,7 +98,7 @@ function EditProfile() {
       setIsUploading(true);
       const authData = await GetAuth();
       if (!authData) {
-        toast.error('uknown error occured')
+        toast.error('ServerSide Error')
 
         setIsUploading(false);
         return;
@@ -114,7 +114,7 @@ function EditProfile() {
         },
         (err, result) => {
           if (err) {
-      toast.error('uknown error occured')
+      toast.error('ServerSide Error')
             
           } else {
             console.log(
@@ -128,7 +128,7 @@ function EditProfile() {
         }
       );
     } catch (err) {
-      toast.error('uknown error occured')
+      toast.error('ServerSide Error')
       setIsUploading(false);
     }
   };

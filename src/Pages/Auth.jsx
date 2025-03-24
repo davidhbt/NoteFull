@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 import Loader from '../Components/Loader'
 
 function Auth() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [user, setUser] = useState(undefined)
 
   const handleLogin = async () => {
     try{
       navigate('/')
       await signInWithEmailAndPassword(auth, email, password)
-      toast.success('Logged in!')
+      toast.success('Logged In!')
     } catch (err){
-      toast.error("Password Incorrect or Cant find Admin.")
+      toast.error("Incorrect Password Or Email")
     }
   }
 
@@ -35,7 +35,7 @@ function Auth() {
   useEffect(() => {
     if (user != null){
       // alert('you are already logged in')
-      toast.error("you are already Logged in")
+      toast.error("You Are Already Logged In")
       navigate('/')
     }
   }, [user])
@@ -58,13 +58,13 @@ function Auth() {
             >
                 <div className="input-box">
                 <label htmlFor="email">Email</label>
-                <input className='input' type="email" id="email" placeholder='youremail@gmail.com' onChange={(e) => setEmail(e.target.value)}/>
+                <input className='input' type="email" id="email" placeholder='youremail@gmail.com' onChange={(e) => setEmail(e.target.value)} required/>
                 </div>
                 <div className="input-box">
                 <label htmlFor="password">Password</label>
-                <input className='input' type="password" placeholder='mustbe atleast 8 characters long' onChange={(e) => setPassword(e.target.value)}/>
+                <input className='input' type="password" placeholder='mustbe atleast 8 characters long' onChange={(e) => setPassword(e.target.value)} required/>
                 </div>
-                <input className='submit' type="submit" value="Login" />
+                <input className='submit' type="submit" value="Login" disabled={password.length <= 8}/>
             </form>
         </div>
       }
