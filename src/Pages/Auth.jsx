@@ -14,9 +14,9 @@ function Auth() {
 
   const handleLogin = async () => {
     try{
-      navigate('/')
       await signInWithEmailAndPassword(auth, email, password)
       toast.success('Logged In!')
+      navigate('/')
     } catch (err){
       toast.error("Incorrect Password Or Email")
     }
@@ -35,7 +35,7 @@ function Auth() {
   useEffect(() => {
     if (user != null){
       // alert('you are already logged in')
-      toast.error("You Are Already Logged In")
+      // toast.error("You Are Already Logged In")
       navigate('/')
     }
   }, [user])
@@ -64,7 +64,7 @@ function Auth() {
                 <label htmlFor="password">Password</label>
                 <input className='input' type="password" placeholder='mustbe atleast 8 characters long' onChange={(e) => setPassword(e.target.value)} required/>
                 </div>
-                <input className='submit' type="submit" value="Login" disabled={password.length <= 8}/>
+                <input className='submit' type="submit" value="Login" disabled={password.length <= 7}/>
             </form>
         </div>
       }

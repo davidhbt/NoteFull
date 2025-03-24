@@ -67,7 +67,7 @@ function SearchPage() {
 
   useEffect(() =>{
     if (data ==undefined){
-      toast.error('no search query.')
+      toast.error('No Search Query')
       navigate('/')
     }
   }, [data])
