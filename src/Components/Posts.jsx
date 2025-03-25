@@ -65,6 +65,7 @@ function Posts({ FirstName, LastName, ProfileURL }) {
 
   const handlePageClick = ({ selected }) => {
     fetchPosts(selected);
+    window.scrollTo(0, 0);
   };
 
   return (
