@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../Components/Loader";
-// import validator from "email-validator";
+import validator from "email-validator";
 
 function Auth() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ function Auth() {
   // console.log(validator.validate(email))
 
   const handleLogin = async () => {
-    // if (validator.validate(email)) {
+    if (validator.validate(email)) {
       try {
         await signInWithEmailAndPassword(auth, email, password);
         toast.success("Logged In!");
@@ -25,9 +25,9 @@ function Auth() {
       } catch (err) {
         toast.error("Incorrect Password Or Email");
       }
-    // }else{
-    //   toast.error("Invalid Email!")
-    // }
+    }else{
+      toast.error("Invalid Email!")
+    }
   };
 
   useEffect(() => {
