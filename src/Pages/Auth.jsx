@@ -26,7 +26,7 @@ function Auth() {
         toast.error("Incorrect Password Or Email");
       }
     }else{
-      toast.error("Invalid Email")
+      toast.error("Invalid Email!")
     }
   };
 
