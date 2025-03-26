@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../Components/Loader";
-import validator from "email-validator";
+// import validator from "email-validator";
 
 function Auth() {
   const [email, setEmail] = useState("");
