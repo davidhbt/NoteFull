@@ -18,7 +18,8 @@ function Auth() {
       toast.success('Logged In!')
       navigate('/')
     } catch (err){
-      toast.error("Incorrect Password Or Email")
+      toast.error("Incorrect Password Or Email!")
+      
     }
   }
 
