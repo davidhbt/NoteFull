@@ -17,7 +17,7 @@ function Auth() {
   // console.log(validator.validate(email))
 
   const handleLogin = async () => {
-    if (validator.validate(email)) {
+    // if (validator.validate(email)) {
       try {
         await signInWithEmailAndPassword(auth, email, password);
         toast.success("Logged In!");
@@ -25,9 +25,9 @@ function Auth() {
       } catch (err) {
         toast.error("Incorrect Password Or Email");
       }
-    }else{
-      toast.error("Invalid Email!")
-    }
+    // }else{
+    //   toast.error("Invalid Email!")
+    // }
   };
 
   useEffect(() => {
