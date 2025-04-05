@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../Config/firebase";
-import { collection, getDocs, orderBy, query, limit, startAfter, startAt } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  orderBy,
+  query,
+  limit,
+  startAfter,
+  startAt,
+} from "firebase/firestore";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
 import ReactPaginate from "react-paginate";
@@ -78,8 +86,16 @@ function Posts({ FirstName, LastName, ProfileURL }) {
             {posts.length === 0 && <>No Posts</>}
 
             {posts.map((post) => (
-              <Link to={`/details/${post.id}`} className="Home-Page-Post" key={post.id}>
-                <img className="Home-Page-Post-img" src={post.BannerUrl} alt="Post" />
+              <Link
+                to={`/details/${post.id}`}
+                className="Home-Page-Post"
+                key={post.id}
+              >
+                <img
+                  className="Home-Page-Post-img"
+                  src={post.BannerUrl}
+                  alt="Post"
+                />
                 <div className="Home-Page-Post-Content">
                   <div className="Home-Page-Post-Tags">
                     {post.Tags.map((tag, index) => (
@@ -88,16 +104,24 @@ function Posts({ FirstName, LastName, ProfileURL }) {
                       </p>
                     ))}
                   </div>
-                  <div className="Home-Page-Post-Titlee">{post.Title}</div>
+                  <div className="Home-Page-Post-Titlee">
+                    {post.Title.length > 15 ? <>{post.Title.slice(0, 25)}...</> : <>{post.Title}</>}
+                  </div>
                   <div className="Home-Page-Post-ProfileData">
                     <div style={{ display: "flex", alignItems: "center" }}>
-                      <img className="Home-Page-Post-Profile-Img" src={ProfileURL} alt="Profile" />
+                      <img
+                        className="Home-Page-Post-Profile-Img"
+                        src={ProfileURL}
+                        alt="Profile"
+                      />
                       <p className="Home-Page-Post-Profile-Name">
                         {FirstName + " " + LastName}
                       </p>
                     </div>
                     <p className="postDate">
-                      {new Date(post.Timestamp.seconds * 1000).toLocaleDateString()}
+                      {new Date(
+                        post.Timestamp.seconds * 1000
+                      ).toLocaleDateString()}
                     </p>
                   </div>
                 </div>

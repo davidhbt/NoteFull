@@ -38,6 +38,8 @@
   /* margin: 10px; */
   color: white;
   padding: 5px;
+  padding-inline: 8px;
+  font-size: 12px;
   border-radius: 5px;
 }
 .DetailsPagePostTitle {

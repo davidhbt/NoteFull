@@ -61,7 +61,7 @@
   /* min-height: ; */
   height: auto;
 }
-.anotherPostPageContainer{
+.anotherPostPageContainer {
   margin-bottom: 100px;
 }
 .Home-Page-Posts-Container {
@@ -71,15 +71,15 @@
   width: 100%;
   /* background-color: red; */
   justify-content: flex-start;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   /* row-gap: 0px; */
   column-gap: 70px;
   /* gap: ; */
   /* row-gap: ; */
 
   /* flex-direction: ; */
-  
-    /* justify-content: flex-start; */
+
+  /* justify-content: flex-start; */
 }
 .Home-Page-Post {
   text-decoration: none;
@@ -88,10 +88,10 @@
   display: flex;
   flex-direction: column;
   width: 320px;
-  min-height: 400px;
-  padding-bottom: 20px;
+  min-height: 300px;
+  padding-bottom: 15px;
   /* padding-: 20px; */
-  border-radius: 10px;
+  border-radius: 5px;
   outline: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -105,47 +105,46 @@
 .Home-Page-Posts-Title {
   font-size: 25px;
   font-weight: 600;
-  
 }
 
-.Home-Page-Post-Titlee{
+.Home-Page-Post-Titlee {
   /* width: 100%; */
   word-wrap: break-word;
   /* background-color: red; */
-    font-size: 23px;
-    font-weight: 600;
-    /* background-color: red; */
-    margin-block: 3px;
-    margin-bottom: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
-    flex: 1;
-    
+  font-size: 18px;
+  font-weight: 500;
+  /* background-color: red; */
+  margin-block: 3px;
+  height: 10px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  /* padding: 0; */
+  flex: 1;
 }
 .Home-Page-Post-Tags {
   margin-block: 3px;
 
-    display: flex;
-    padding-right: 10px;
-    padding-left: 10px;
-    gap: 5px;
-    /* margin-block: 5px; */
-
+  display: flex;
+  padding-right: 10px;
+  padding-left: 10px;
+  gap: 5px;
+  /* margin-block: 5px; */
 }
 .Home-Page-Post-Tag {
-    /* margin: 5px; */
-    background-color: var(--primary);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 13px;
-    
-    
-    color: white;
+  /* margin: 5px; */
+  background-color: var(--primary);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+
+  color: white;
 }
 .Home-Page-Post-ProfileData {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: red; */
   /* border-top: 5px; */
   /* border-width: 1px; */
   border-top: 3px solid #eaeaea;
@@ -157,12 +156,12 @@
   background-size: cover;
   width: 100%;
   object-fit: cover;
-  height: 250px;
-  border-radius: 10px 10px 0px 0px ;  
+  height: 220px;
+  border-radius: 5px 5px 0px 0px;
   /* border: 1px solid #eaeaea; */
 }
 .Home-Page-Post-Content {
-    margin-top: 5px;
+  margin-top: 5px;
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -171,101 +170,101 @@
 }
 .Home-Page-Post-Profile-Img {
   border-radius: 100%;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
 }
-.Home-Page-Post-Profile-Name{
+.Home-Page-Post-Profile-Name {
   font-weight: 500;
+  font-size: 14px;
+}
+.postDate{
+  font-size: 14px;
+
 }
 .Home-Page-Post-Title {
   font-size: 25px;
+  /* background-color: red; */
   color: black;
   font-weight: 700;
 }
 
-
-
-
-@media screen and (max-width:1588px) {
-  .Home-Page-Container{
+@media screen and (max-width: 1588px) {
+  .Home-Page-Container {
     width: 90%;
   }
-  .Home-Page-Posts-Container{
+  .Home-Page-Posts-Container {
     justify-content: space-around;
     /* flex: 1; */
   }
-  .Home-Page-Post{
+  .Home-Page-Post {
     /* flex: 1; */
   }
 }
-@media screen and (max-width:900px) {
-  .Home-Page-Profile-Box{
+@media screen and (max-width: 900px) {
+  .Home-Page-Profile-Box {
     height: auto;
     padding-block: 10%;
     margin-inline: 5%;
   }
-  .Home-Page-Profile-Description{
+  .Home-Page-Profile-Description {
     width: 80%;
     margin-inline: 10px;
     font-size: 15px;
     /* background-color: red; */
   }
-  .Home-Page-Profile-Details-Name{
+  .Home-Page-Profile-Details-Name {
     font-size: 20px;
   }
-  .Home-Page-Profile-Details-Image{
+  .Home-Page-Profile-Details-Image {
     width: 50px;
     height: 50px;
   }
-  .Home-Page-Post{
+  .Home-Page-Post {
     width: 325px;
     min-height: 350px;
   }
-  .Home-Page-Post-Tags{
+  .Home-Page-Post-Tags {
     gap: 5px;
   }
-  .Home-Page-Post-Tag{
+  .Home-Page-Post-Tag {
     margin: 0;
     font-size: 11px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .Home-Page-Post{
+  .Home-Page-Post {
     width: 350px;
   }
 }
 
-@media  screen and (max-width:400px) {
-  .Home-Page-Post{
+@media screen and (max-width: 400px) {
+  .Home-Page-Post {
     width: 100%;
   }
-  .Home-Page-Post-Titlee{
+  .Home-Page-Post-Titlee {
     font-size: 23px;
   }
-  .Home-Page-Post-Profile-Name{
+  .Home-Page-Post-Profile-Name {
     font-size: 15px;
   }
-  .Home-Page-Post-ProfileData{
+  .Home-Page-Post-ProfileData {
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
   }
-  .postDate{
+  .postDate {
     font-size: 11px;
   }
-  .Home-Page-Post-Tags{
+  .Home-Page-Post-Tags {
     gap: 5px;
   }
-  .Home-Page-Post-Tag{
+  .Home-Page-Post-Tag {
     margin: 0;
     font-size: 11px;
   }
-
 }
-
-
 
 /* to delete */
 .pagination {
@@ -283,7 +282,6 @@
   cursor: pointer;
   text-decoration: none;
   cursor: pointer;
-
 }
 
 .pagination__link--active {
@@ -299,20 +297,18 @@
   cursor: pointer;
 }
 
-
-@media screen and (max-width: 415px){
-  .pagination{
+@media screen and (max-width: 415px) {
+  .pagination {
     /* background-color: red; */
     width: 100%;
   }
-  .pagination__link{
+  .pagination__link {
     padding: 5px;
-    
   }
 }
 
 @media screen and (max-width: 350px) {
-  .pagination__link{
+  .pagination__link {
     padding: 1px;
   }
 }

@@ -61,6 +61,9 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.submit:disabled{
+    opacity: 0.5;
+}
 
 
 
