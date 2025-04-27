@@ -105,7 +105,7 @@ function Posts({ FirstName, LastName, ProfileURL }) {
                     ))}
                   </div>
                   <div className="Home-Page-Post-Titlee">
-                    {post.Title.length > 15 ? <>{post.Title.slice(0, 25)}...</> : <>{post.Title}</>}
+                    {post.Title.length > 15 ? <>{post.Title.slice(0, 25)}...?</> : <>{post.Title}</>}
                   </div>
                   <div className="Home-Page-Post-ProfileData">
                     <div style={{ display: "flex", alignItems: "center" }}>
