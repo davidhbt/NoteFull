@@ -1,9 +1,10 @@
 .DetailsPage {
   width: 100%;
-  height: auto;
+  min-height: 100vh;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .DetailsPageContainer {
   width: var(--defualtwidth);
