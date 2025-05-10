@@ -23,6 +23,11 @@ function NavBar() {
     }
   };
 
+
+  const toHome = () =>{
+    navigate('/')
+  }
+
   const navMountedStyle = {
     transition: "1s",
   };
@@ -88,7 +93,7 @@ function NavBar() {
               </ul>
             </div>
           )}
-          <h1 className="nav-title">
+          <h1 className="nav-title" onClick={toHome}>
             <span className="nav-title-span">Note</span>Full
           </h1>
           <ul className="nav-links">
@@ -159,7 +164,7 @@ function NavBar() {
               </ul>
             </div>
           )}
-          <h1 className="nav-title">
+          <h1 className="nav-title" onClick={toHome}>
             <span className="nav-title-span">Note</span>Full{" "}
             <span className="nav-title-admin">| admin</span>
           </h1>

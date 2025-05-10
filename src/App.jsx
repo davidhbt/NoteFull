@@ -11,6 +11,7 @@ import Detail from "./Pages/Detail";
 import { ToastContainer } from "react-toastify";
 import SearchPage from "./Pages/SearchPage";
 import NotFound from "./Pages/NotFound";
+import EditPost from "./Pages/EditPost";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/details/:id" element={<Detail/>} />
         <Route path="/search/" element={<SearchPage/>} />
         <Route path="*" element={<NotFound/>} />
+        <Route path="/editpost" element={<EditPost/>} />
       </Routes>
       <Footer />
     </div>

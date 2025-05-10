@@ -23,9 +23,15 @@
   margin-bottom: 100px;
 }
 .DetailsPagePostData {
+/* gap: 10px; */
   /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #dededd;
 }
 .DetailsPagePostTags {
   display: flex;
@@ -50,10 +56,10 @@
 .DetailsPagePostAuthor {
   margin-block: 10px;
   /* background-color: black; */
-  width: 200px;
+  /* width: 200px; */
   height: 50px;
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
@@ -65,6 +71,7 @@
 }
 .DetailsPagePostAuthor p {
   font-weight: 400;
+  /* font-size: ; */
 }
 .DetailsPagePostAuthorbutton {
   width: 25px;

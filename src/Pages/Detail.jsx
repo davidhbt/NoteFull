@@ -117,6 +117,13 @@ function Detail() {
     }
   }, [postLoading, adminLoading]);
 
+
+  const handleEdit = () =>{
+    console.log(id, 'wsg')
+    navigate('/editpost', {state: {mark: rawMarkdown, id: id}})
+
+  }
+
   return (
     <div className="DetailsPage">
       <div className="DetailsPageContainer">
@@ -125,16 +132,8 @@ function Detail() {
         ) : (
           <div className="DetailsPagePost">
             <div className="DetailsPagePostData">
-              <div className="DetailsPagePostTags">
-                {tags?.map((tag) => {
-                  return <p key={post.id}>{tag}</p>;
-                })}
-              </div>
-                <div>
-                Date: {new Date(post?.Timestamp?.seconds * 1000).toLocaleDateString()}
-                </div>
-              <h1 className="DetailsPagePostTitle">{post?.Title}</h1>
               <div className="DetailsPagePostAuthor">
+                <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                 <img
                   className="DetailsPagePostAuthorImage"
                   src={profile?.ProfileURL}
@@ -142,8 +141,9 @@ function Detail() {
                 <p className="DetailsPagePostAuthorName">
                   {profile?.FirstName + " " + profile?.LastName}
                 </p>{" "}
+                </div>
                 {/* <b className="DetailsPagePostAuthorbutton">x</b/utton> */}
-                {user && (
+                {/* {user && (
                   <ReactConfirmPopup
                     title="are you sure you wanto delete this Post?"
                     onConfirmClicked={async () => {
@@ -163,8 +163,24 @@ function Detail() {
                       <button className="DetailsPagePostAuthorbutton">x</button>
                     }
                   />
-                )}
+                )} */}
+                {
+                  user && (
+                    <>
+                    <p onClick={handleEdit} style={{cursor: 'pointer', color: 'black', fontSize: "18px"}}>Edit page</p>
+                    </>
+                  )
+                }
               </div>
+              <div className="DetailsPagePostTags">
+                {tags?.map((tag) => {
+                  return <p key={post.id}>{tag}</p>;
+                })}
+              </div>
+                <div>
+                Date: {new Date(post?.Timestamp?.seconds * 1000).toLocaleDateString()}
+                </div>
+              <h1 className="DetailsPagePostTitle">{post?.Title}</h1>
             </div>
             <div className="HomePagePostContent" >
               <Markdown
