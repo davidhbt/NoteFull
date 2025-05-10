@@ -106,7 +106,8 @@ function PostDetails() {
       });
       navigate("/");
       // console.log(finalTitle)/
-      toast.success("Post Uploaded!");
+      toast.success("Post Uploaded!"); 
+      
     } catch (err) {
       // alert("Post error");
       toast.error("Post Error")
