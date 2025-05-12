@@ -15,10 +15,11 @@ function NavBar() {
   const navigate = useNavigate("/");
 
   const handleSearch = (e) => {
-    if(e){
-      if (e.trim() === "") {
-        return;
-      }
+    if (typeof e === "string" && e.trim() === "") {
+      navigate("/");
+      return;
+    }
+    if (typeof e === "string") {
       navigate("/search", { state: { value: e } });
     }
   };

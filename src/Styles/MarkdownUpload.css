@@ -30,7 +30,7 @@
 }
 .markdown-upload-text-input{
     width: var(--defualtwidth);
-max-height: 500px; /* Set the max height you want */
+/* max-height: 500px; Set the max height you want */
   min-height: 200px; /* Optional: set a minimum height */
   height: auto;
   overflow: auto; /* Add scroll if content overflows */
@@ -219,4 +219,9 @@ max-height: 500px; /* Set the max height you want */
 
 .hljs-string {
   color: #004ba0;
+}
+
+
+.CodeMirror.cm-s-easymde.CodeMirror-wrap{
+  height: 80vh;
 }
