@@ -100,14 +100,13 @@ function PostDetails() {
       await addDoc(postRef, {
         Title: title,
         MarkDown: finalMk,
-        BannerUrl: !imageUrl ? 'https://ik.imagekit.io/notefull/banner-pic_3YozeElHw' : imageUrl,
+        BannerUrl: !imageUrl ? 'https://ik.imagekit.io/notefull/banner-pic_HoFZo1KsF' : imageUrl,
         Tags: tags,
         Timestamp: currentDate,
       });
       navigate("/");
       // console.log(finalTitle)/
-      toast.success("Post Uploaded!"); 
-      
+      toast.success("Post Uploaded!");
     } catch (err) {
       // alert("Post error");
       toast.error("Post Error")
