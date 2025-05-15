@@ -23,6 +23,7 @@ import "katex/dist/katex.min.css";
 import "highlight.js/styles/atom-one-dark.css";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import ReactConfirmPopup from "react-confirm-popup";
 
 function EditPost() {
   const [content, setContent] = useState("");
@@ -86,6 +87,7 @@ function EditPost() {
       toast.error("Cannot Delete Post!");
     }
   };
+  
 
   return (
     <div className="markdown-upload">
@@ -99,14 +101,24 @@ function EditPost() {
           />
         </div>
         <div style={{ display: "flex", gap: "20px" }}>
-          <button
+            
+                  <ReactConfirmPopup
+                    title="are you sure you wanto delete this Post?"
+                    onConfirmClicked={() => handleDelete()}
+                    // onCancelClicked={() => alert('nahh')}
+
+                    trigger={
+                       <button
             className="markdown-upload-button"
             disabled={!content}
             style={{ background: "red" }}
-            onClick={handleDelete}
+            // onClick={handleDelete}
           >
             Delete Post
           </button>
+                    }
+                  />
+         
           <button
             className="markdown-upload-button"
             disabled={!content || content === mark}
