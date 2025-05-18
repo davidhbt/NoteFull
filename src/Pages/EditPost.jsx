@@ -30,6 +30,8 @@ function EditPost() {
   const [user, setUser] = useState(undefined);
   const location = useLocation();
   const id = location.state?.id || undefined;
+  const title = location.state?.title || undefined;
+  const tags = location.state?.tags || undefined;
   const mark = location.state?.mark || undefined;
 
   const DocRef = doc(db, "Post", id);
@@ -38,7 +40,7 @@ function EditPost() {
     setContent(mark);
   }, []);
 
-  console.log(id);
+  console.log(id, tags, title);
 
   useEffect(() => {
     const getAuth = auth.onAuthStateChanged((user) => {
@@ -56,25 +58,37 @@ function EditPost() {
   const navigate = useNavigate();
 
   const handleclick = async () => {
-    try {
-      if (!content || content === mark) {
-        toast.error("No changes to update!");
-        return;
+    try{
+      if(!content || content == mark){
+        toast.error('No changes to update!')
+        return
       }
+    navigate('/editDetails', {state: {data: content, id: id, title: title, tags: tags} })
 
-      // Encode the content in Base64
-      const encodedContent = btoa(content);
-
-      await updateDoc(DocRef, {
-        MarkDown: encodedContent, // Update the MarkDown field with the Base64-encoded content
-      });
-
-      toast.success("Post updated successfully!");
-      navigate("/"); // Redirect to the homepage or another page after updating
-    } catch (err) {
-      console.error("Error updating document:", err);
-      toast.error("Failed to update the post.");
+    }catch(err){
+      console.log(err)
     }
+    // navigate('/postDetails', {state: {data: content}})
+
+    // try {
+    //   if (!content || content === mark) {
+    //     toast.error("No changes to update!");
+    //     return;
+    //   }
+
+    //   // Encode the content in Base64
+    //   const encodedContent = btoa(content);
+
+    //   await updateDoc(DocRef, {
+    //     MarkDown: encodedContent, // Update the MarkDown field with the Base64-encoded content
+    //   });
+
+    //   toast.success("Post updated successfully!");
+    //   navigate("/"); // Redirect to the homepage or another page after updating
+    // } catch (err) {
+    //   console.error("Error updating document:", err);
+    //   toast.error("Failed to update the post.");
+    // }
   };
 
   const handleDelete = async () => {

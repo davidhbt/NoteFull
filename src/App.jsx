@@ -12,6 +12,8 @@ import { ToastContainer } from "react-toastify";
 import SearchPage from "./Pages/SearchPage";
 import NotFound from "./Pages/NotFound";
 import EditPost from "./Pages/EditPost";
+import UpdatePostDetails from "./Pages/UpdatePostDetails";
+// import MarkdownUpdate from "./Pages/MarkdownUpdate";
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
         <Route path="/search/" element={<SearchPage/>} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/editpost" element={<EditPost/>} />
+        <Route path="/editDetails" element={<UpdatePostDetails/> } />
       </Routes>
       <Footer />
     </div>

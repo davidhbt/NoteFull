@@ -31,6 +31,7 @@ import { toast } from "react-toastify";
 import { PencilOutline } from "react-ionicons";
 
 function Detail() {
+  const [title, setTitle] = useState('')
   const { id } = useParams();
   const [post, setPost] = useState(undefined);
   const [profile, setProfile] = useState(undefined);
@@ -42,6 +43,8 @@ function Detail() {
   const [loading, setLoading] = useState();
   const [tags, setTags] = useState();
 
+
+  console.log(title, 'bbg')
   useEffect(() => {
     const getAuth = auth.onAuthStateChanged((user) => {
       setUser(user);
@@ -66,6 +69,7 @@ function Detail() {
           const postData = { id: snapshot.id, ...snapshot.data() };
           setPost(postData);
           setRawMarkdown(atob(postData.MarkDown));
+          setTitle(postData.Title)
           setPostLoading(false);
 
           setTags(postData.Tags);
@@ -121,7 +125,7 @@ function Detail() {
 
   const handleEdit = () => {
     console.log(id, "wsg");
-    navigate("/editpost", { state: { mark: rawMarkdown, id: id } });
+    navigate("/editpost", { state: { mark: rawMarkdown, id: id, title: title, tags: tags } });
   };
 
   return (
