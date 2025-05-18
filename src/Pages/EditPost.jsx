@@ -103,7 +103,7 @@ function EditPost() {
         <div style={{ display: "flex", gap: "20px" }}>
             
                   <ReactConfirmPopup
-                    title="are you sure you wanto delete this Post?"
+                    title="Are you sure you want to delete this Post?"
                     onConfirmClicked={() => handleDelete()}
                     // onCancelClicked={() => alert('nahh')}
 

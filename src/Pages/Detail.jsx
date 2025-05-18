@@ -28,6 +28,8 @@ import "../Styles/Markdown.css";
 import Loader from "../Components/Loader";
 import { toast } from "react-toastify";
 
+import { PencilOutline } from "react-ionicons";
+
 function Detail() {
   const { id } = useParams();
   const [post, setPost] = useState(undefined);
@@ -77,8 +79,8 @@ function Detail() {
       } catch (err) {
         // setPostLoading(false);
         setPostLoading(false);
-        toast.error('Cannot Get Post!')
-        navigate('/')
+        toast.error("Cannot Get Post!");
+        navigate("/");
       }
     };
     setAdminLoading(true);
@@ -93,14 +95,14 @@ function Detail() {
           setAdminLoading(false);
         } else {
           // alert("Document not found");
-          toast.error('Post Not Found.')
-          navigate('')
+          toast.error("Post Not Found.");
+          navigate("");
           setAdminLoading(false);
         }
       } catch (err) {
         setAdminLoading(false);
-        toast.error('Post not found')
-        navigate('')
+        toast.error("Post not found");
+        navigate("");
       }
     };
     // setPostLoading(false);
@@ -117,12 +119,10 @@ function Detail() {
     }
   }, [postLoading, adminLoading]);
 
-
-  const handleEdit = () =>{
-    console.log(id, 'wsg')
-    navigate('/editpost', {state: {mark: rawMarkdown, id: id}})
-
-  }
+  const handleEdit = () => {
+    console.log(id, "wsg");
+    navigate("/editpost", { state: { mark: rawMarkdown, id: id } });
+  };
 
   return (
     <div className="DetailsPage">
@@ -133,14 +133,16 @@ function Detail() {
           <div className="DetailsPagePost">
             <div className="DetailsPagePostData">
               <div className="DetailsPagePostAuthor">
-                <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                <img
-                  className="DetailsPagePostAuthorImage"
-                  src={profile?.ProfileURL}
-                />
-                <p className="DetailsPagePostAuthorName">
-                  {profile?.FirstName + " " + profile?.LastName}
-                </p>{" "}
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <img
+                    className="DetailsPagePostAuthorImage"
+                    src={profile?.ProfileURL}
+                  />
+                  <p className="DetailsPagePostAuthorName">
+                    {profile?.FirstName + " " + profile?.LastName}
+                  </p>{" "}
                 </div>
                 {/* <b className="DetailsPagePostAuthorbutton">x</b/utton> */}
                 {/* {user && (
@@ -164,25 +166,42 @@ function Detail() {
                     }
                   />
                 )} */}
-                {
-                  user && (
-                    <>
-                    <p onClick={handleEdit} style={{cursor: 'pointer', color: 'black', fontSize: "18px"}}>Edit page</p>
-                    </>
-                  )
-                }
+                {user && (
+                  <div
+                    onClick={handleEdit}
+                    style={{ display: "flex", gap: "15px", cursor: "pointer" }}
+                  >
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        color: "black",
+                        fontSize: "18px",
+                      }}
+                    >
+                      Edit page
+                    </p>
+                    <PencilOutline
+                      className="pencilicon"
+                      color={"var(--secondary)"}
+                      // title={}
+                      height="20px"
+                      width="20px"
+                    />
+                  </div>
+                )}
               </div>
               <div className="DetailsPagePostTags">
                 {tags?.map((tag) => {
                   return <p key={post.id}>{tag}</p>;
                 })}
               </div>
-                <div>
-                Date: {new Date(post?.Timestamp?.seconds * 1000).toLocaleDateString()}
-                </div>
+              <div>
+                Date:{" "}
+                {new Date(post?.Timestamp?.seconds * 1000).toLocaleDateString()}
+              </div>
               <h1 className="DetailsPagePostTitle">{post?.Title}</h1>
             </div>
-            <div className="HomePagePostContent" >
+            <div className="HomePagePostContent">
               <Markdown
                 remarkPlugins={[remarkGfm, remarkMath, remarkFrontmatter]}
                 rehypePlugins={[
