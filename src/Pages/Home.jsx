@@ -23,6 +23,13 @@ function Home() {
   const [loading, setLoading] = useState(false);
   // const []
 
+
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
+  
+
   useEffect(() => {
     if (postLoading || adminLoading) {
       setLoading(true);
